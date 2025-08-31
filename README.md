@@ -1,4 +1,4 @@
-# biometric-project
+# Biometric Based Emergency patient record retrieval system
 Engineered a biometric patient identification system utilizing fingerprint scanning; reduced patient record retrieval time  by 60%, enabling faster access to critical medical information for clinicians 
 Healthcare systems worldwide face increasing challenges related to patient identification, data 
 security, and record retrieval inefficiencies. Traditional methods relying on manual data entry 
