@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      border-radius: 15px;
+    }
+    .header {
+      background-color: #00796b;
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .field-label {
+      font-weight: 500;
+    }
+    .section-title {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #00796b;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="card shadow-lg">
+      <div class="card-header header text-center">
+        <h2>🧾 Patient Profile</h2>
+      </div>
+      <div class="card-body">
+        <div class="row g-4">
+          <div class="col-md-6"><span class="field-label">Name:</span> <span id="name"></span></div>
+          <div class="col-md-6"><span class="field-label">Gender:</span> <span id="gender"></span></div>
+          <div class="col-md-6"><span class="field-label">Age:</span> <span id="age"></span></div>
+          <div class="col-md-6"><span class="field-label">Weight:</span> <span id="weight"></span> kg</div>
+          <div class="col-md-6"><span class="field-label">Mobile:</span> <span id="mobile"></span></div>
+          <div class="col-md-6"><span class="field-label">Email:</span> <span id="email"></span></div>
+          <div class="col-md-6"><span class="field-label">Blood Group:</span> <span id="blood_group"></span></div>
+          <div class="col-md-6"><span class="field-label">Allergic:</span> <span id="allergic"></span></div>
+          <div class="col-12">
+            <div class="section-title">Medical History</div>
+            <p id="history" class="mt-2"></p>
+          </div>
+          <div class="col-12">
+            <div class="section-title">Medical Report</div>
+            <p class="mt-2" id="reportSection"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("patient"));
+
+    document.getElementById("name").innerText = data.name;
+    document.getElementById("gender").innerText = data.gender;
+    document.getElementById("age").innerText = data.age;
+    document.getElementById("weight").innerText = data.weight;
+    document.getElementById("mobile").innerText = data.mobile;
+    document.getElementById("email").innerText = data.email;
+    document.getElementById("blood_group").innerText = data.blood_group;
+    document.getElementById("allergic").innerText = data.allergic;
+    document.getElementById("history").innerText = data.history;
+
+    if (data.report && data.report !== "") {
+      document.getElementById("reportSection").innerHTML =
+        '<a href="/reports/' + data.report + '" target="_blank" class="btn btn-outline-primary btn-sm">View Report</a>';
+    } else {
+      document.getElementById("reportSection").innerHTML = '<span class="text-muted">No report uploaded.</span>';
+    }
+  </script>
+</body>
+</html>
